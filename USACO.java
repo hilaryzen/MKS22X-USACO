@@ -11,7 +11,10 @@ public class USACO {
       while (inf.hasNextLine()) {
         lines.add(inf.nextLine());
       }
+    } catch (FileNotFoundException e) {
+      System.out.println("Invalid file: " + filename);
     }
+    System.out.println(lines);
     return 0;
   }
 
