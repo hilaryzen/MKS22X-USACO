@@ -21,4 +21,8 @@ public class USACO {
   public static int silver(String filename) {
     return 0;
   }
+
+  public static void main(String[] args) {
+    bronze("makelake.1.in");
+  }
 }
