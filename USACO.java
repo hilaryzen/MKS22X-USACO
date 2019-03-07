@@ -17,7 +17,7 @@ public class USACO {
     return lines;
   }
 
-  private static String toString() {
+  private static String toString(int[][] arr) {
     String ans = "";
     for (int i = 0; i < arr.length; i++) {
       for (int j = 0; j < arr[0].length; j++) {
@@ -43,7 +43,7 @@ public class USACO {
       }
       lines.remove(0);
     }
-    System.out.println(field);
+    System.out.println(toString(field));
     return 0;
   }
 
@@ -71,6 +71,6 @@ public class USACO {
   }
 
   public static void main(String[] args) {
-    bronze("makelake.2.in");
+    bronze("makelake.1.in");
   }
 }
