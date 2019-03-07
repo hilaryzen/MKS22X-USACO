@@ -17,6 +17,7 @@ public class USACO {
     return lines;
   }
 
+  //Prints integer arrays
   private static String toString(int[][] arr) {
     String ans = "";
     for (int i = 0; i < arr.length; i++) {
@@ -32,6 +33,8 @@ public class USACO {
   public static int bronze(String filename) {
     ArrayList<String> lines = fileReader(filename);
     //System.out.println(lines);
+
+    //Creates an integer array to store the field
     String[] line = lines.get(0).split(" ");
     int[][] field = new int[Integer.parseInt(line[0])][Integer.parseInt(line[1])];
     int finalElevation = Integer.parseInt(line[2]);
@@ -41,9 +44,16 @@ public class USACO {
       for (int j = 0; j < field[0].length; j++) {
         field[i][j] = Integer.parseInt(line[j]);
       }
+      //Removes lines so that the ArrayList only contains stomp instructions
       lines.remove(0);
     }
     System.out.println(toString(field));
+
+    for (int i = 0; i < lines.size(); i++) {
+      line = lines.get(i).split(" ");
+      stomp(field, Integer.parseInt(line[0]), Integer.parseInt(line[1]), Integer.parseInt(line[2]));
+      System.out.println(toString(field));
+    }
     return 0;
   }
 
