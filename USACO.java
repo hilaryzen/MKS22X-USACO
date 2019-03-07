@@ -17,6 +17,17 @@ public class USACO {
     return lines;
   }
 
+  private static String toString() {
+    String ans = "";
+    for (int i = 0; i < arr.length; i++) {
+      for (int j = 0; j < arr[0].length; j++) {
+        ans = ans + arr[i][j] + " ";
+      }
+      ans += '\n';
+    }
+    return ans;
+  }
+
   //Bronze Problem 12: Lake Making
   public static int bronze(String filename) {
     ArrayList<String> lines = fileReader(filename);
