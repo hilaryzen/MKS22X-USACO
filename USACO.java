@@ -22,12 +22,17 @@ public class USACO {
     ArrayList<String> lines = fileReader(filename);
     //System.out.println(lines);
     String[] line = lines.get(0).split(" ");
-    int[][] field = new int[line[0]][line[1]];
-    int finalElevation = line[2];
+    int[][] field = new int[Integer.parseInt(line[0])][Integer.parseInt(line[1])];
+    int finalElevation = Integer.parseInt(line[2]);
     lines.remove(0);
     for (int i = 0; i < field.length; i++) {
-
+      line = lines.get(0).split(" ");
+      for (int j = 0; j < field[0].length; j++) {
+        field[i][j] = Integer.parseInt(line[j]);
+      }
+      lines.remove(0);
     }
+    System.out.println(field);
     return 0;
   }
 
