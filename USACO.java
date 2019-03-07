@@ -21,6 +21,8 @@ public class USACO {
   public static int bronze(String filename) {
     ArrayList<String> lines = fileReader(filename);
     //System.out.println(lines);
+    String[] line = lines[0].split(" ");
+    int[][] field = new int[line[0]][line[1]];
     return 0;
   }
 
