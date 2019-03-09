@@ -17,18 +17,6 @@ public class USACO {
     return lines;
   }
 
-  //Prints integer arrays
-  private static String toString(int[][] arr) {
-    String ans = "";
-    for (int i = 0; i < arr.length; i++) {
-      for (int j = 0; j < arr[0].length; j++) {
-        ans = ans + arr[i][j] + " ";
-      }
-      ans += '\n';
-    }
-    return ans;
-  }
-
   //Bronze Problem 12: Lake Making
   public static int bronze(String filename) {
     ArrayList<String> lines = fileReader(filename);
@@ -47,13 +35,13 @@ public class USACO {
       //Removes lines so that the ArrayList only contains stomp instructions
       lines.remove(0);
     }
-    //System.out.println(toString(field));
+    //System.out.println(Arrays.toString(field));
 
     //Goes through all given stomp instructions in file
     for (int i = 0; i < lines.size(); i++) {
       line = lines.get(i).split(" ");
       stomp(field, Integer.parseInt(line[0]), Integer.parseInt(line[1]), Integer.parseInt(line[2]));
-      //System.out.println(toString(field));
+      //System.out.println(Arrays.toString(field));
     }
 
     //For each square, subtract from finalElevation and add to total
@@ -88,10 +76,35 @@ public class USACO {
 
   public static int silver(String filename) {
     ArrayList<String> lines = fileReader(filename);
+
+    //Creates a char array to store the field
+    String[] line = lines.get(0).split(" ");
+    char[][] field = new char[Integer.parseInt(line[0])][Integer.parseInt(line[1])];
+    int steps = Integer.parseInt(line[2]);
+    lines.remove(0);
+    //Filling array
+    String l;
+    for (int i = 0; i < field.length; i++) {
+      l = lines.get(0);
+      for (int j = 0; j < field[0].length; j++) {
+        field[i][j] = l.charAt(j);
+      }
+      //Removes lines so that the ArrayList only contains stomp instructions
+      lines.remove(0);
+    }
+    System.out.println(Arrays.deepToString(field));
+    //Storing coordinates
+    line = lines.get(0).split(" ");
+    int startR = Integer.parseInt(line[0]) - 1;
+    int startC = Integer.parseInt(line[1]) - 1;
+    int endR = Integer.parseInt(line[2]) - 1;
+    int endC = Integer.parseInt(line[3]) - 1;
+
     return 0;
   }
 
   public static void main(String[] args) {
+    /*
     String[] bronzeFiles = {"makelake.1.in", "makelake.2.in", "makelake.3.in", "makelake.4.in", "makelake.5.in"};
     int[] bronzeAns = {342144, 102762432, 1058992704, 753121152, 1028282688};
     for (int i = 0; i < 5; i++) {
@@ -99,5 +112,8 @@ public class USACO {
         System.out.println("Bronze test " + (i + 1) + " passed");
       }
     }
+    */
+
+    silver("ctravel.1.in");
   }
 }
