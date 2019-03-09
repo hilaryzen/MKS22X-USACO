@@ -47,14 +47,25 @@ public class USACO {
       //Removes lines so that the ArrayList only contains stomp instructions
       lines.remove(0);
     }
-    System.out.println(toString(field));
+    //System.out.println(toString(field));
 
+    //Goes through all given stomp instructions in file
     for (int i = 0; i < lines.size(); i++) {
       line = lines.get(i).split(" ");
       stomp(field, Integer.parseInt(line[0]), Integer.parseInt(line[1]), Integer.parseInt(line[2]));
-      System.out.println(toString(field));
+      //System.out.println(toString(field));
     }
-    return 0;
+
+    //For each square, subtract from finalElevation and add to total
+    int total = 0;
+    for (int i = 0; i < field.length; i++) {
+      for (int j = 0; j < field[i].length; j++) {
+        if (field[i][j] < finalElevation) {
+          total += finalElevation - field[i][j];
+        }
+      }
+    }
+    return total * 72 * 72;
   }
 
   private static void stomp(int[][] field, int row, int col, int depth) {
@@ -81,6 +92,6 @@ public class USACO {
   }
 
   public static void main(String[] args) {
-    bronze("makelake.1.in");
+    System.out.println(bronze("makelake.1.in"));
   }
 }
