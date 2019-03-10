@@ -104,10 +104,23 @@ public class USACO {
     line = lines.get(0).split(" ");
     int startR = Integer.parseInt(line[0]) - 1;
     int startC = Integer.parseInt(line[1]) - 1;
+    field[startR][startC] = 1;
     int endR = Integer.parseInt(line[2]) - 1;
     int endC = Integer.parseInt(line[3]) - 1;
 
     return 0;
+  }
+
+  private static int change(int r, int c) {
+    int ans = 0;
+    try {
+      ans += field[r - 1][c];
+      ans += field[r + 1][c];
+      ans += field[r][c - 1];
+      ans += field[r][c - 1];
+    } catch (ArrayIndexOutOfBoundsException e) {
+
+    }
   }
 
   public static void main(String[] args) {
