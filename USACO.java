@@ -81,7 +81,7 @@ public class USACO {
     String[] line = lines.get(0).split(" ");
     int[][] field = new int[Integer.parseInt(line[0])][Integer.parseInt(line[1])];
     int[][] field2 = new int[Integer.parseInt(line[0])][Integer.parseInt(line[1])];
-    int steps = Integer.parseInt(line[2]);
+    int time = Integer.parseInt(line[2]);
     lines.remove(0);
     //Filling array
     String l;
@@ -109,13 +109,26 @@ public class USACO {
     int endR = Integer.parseInt(line[2]) - 1;
     int endC = Integer.parseInt(line[3]) - 1;
 
-    //Changing array
-    change(field, field2, startR, startC);
-    change(field, field2, startR, startC - 1);
+    //Changing every square
+    //change(field, field2, startR, startC);
+    //change(field, field2, startR, startC - 1);
+    for (int step = 0; step < time; step++) {
+      for (int i = 0; i < field.length; i++) {
+        for (int j = 0; j < field[i].length; j++) {
+          change(field, field2, i, j);
+        }
+      }
+      for (int i = 0; i < field.length; i++) {
+        for (int j = 0; j < field[i].length; j++) {
+          field[i][j] = field2[i][j];
+        }
+      }
+    }
+
     System.out.println(Arrays.deepToString(field));
     System.out.println(Arrays.deepToString(field2));
 
-    return 0;
+    return field[endR][endC];
   }
 
   private static void change(int[][] field, int[][] field2, int r, int c) {
