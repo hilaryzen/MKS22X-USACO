@@ -79,8 +79,8 @@ public class USACO {
 
     //Creates a char array to store the field
     String[] line = lines.get(0).split(" ");
-    int[][] field = new char[Integer.parseInt(line[0])][Integer.parseInt(line[1])];
-    int[][] field2 = new char[Integer.parseInt(line[0])][Integer.parseInt(line[1])];
+    int[][] field = new int[Integer.parseInt(line[0])][Integer.parseInt(line[1])];
+    int[][] field2 = new int[Integer.parseInt(line[0])][Integer.parseInt(line[1])];
     int steps = Integer.parseInt(line[2]);
     lines.remove(0);
     //Filling array
@@ -111,7 +111,7 @@ public class USACO {
     return 0;
   }
 
-  private static int change(int r, int c) {
+  private static int change(int[][] field, int r, int c) {
     int ans = 0;
     try {
       ans += field[r - 1][c];
@@ -121,6 +121,7 @@ public class USACO {
     } catch (ArrayIndexOutOfBoundsException e) {
 
     }
+    return ans;
   }
 
   public static void main(String[] args) {
