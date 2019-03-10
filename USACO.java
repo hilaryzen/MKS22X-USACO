@@ -144,7 +144,9 @@ public class USACO {
 
       }
     }
-    field2[r][c] = ans;
+    if (field[r][c] >= 0) {
+      field2[r][c] = ans;
+    }
   }
 
   public static void main(String[] args) {
@@ -158,6 +160,6 @@ public class USACO {
     }
     */
 
-    silver("ctravel.1.in");
+    System.out.println(silver("ctravel.1.in"));
   }
 }
