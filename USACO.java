@@ -99,7 +99,8 @@ public class USACO {
       //Removes lines so that the ArrayList only contains stomp instructions
       lines.remove(0);
     }
-    System.out.println(Arrays.deepToString(field));
+    //System.out.println(Arrays.deepToString(field));
+
     //Storing coordinates
     line = lines.get(0).split(" ");
     int startR = Integer.parseInt(line[0]) - 1;
@@ -108,20 +109,37 @@ public class USACO {
     int endR = Integer.parseInt(line[2]) - 1;
     int endC = Integer.parseInt(line[3]) - 1;
 
+    //Changing array
+    change(field, field2, startR, startC);
+    System.out.println(Arrays.deepToString(field));
+    System.out.println(Arrays.deepToString(field2));
+
     return 0;
   }
 
-  private static int change(int[][] field, int r, int c) {
+  private static void change(int[][] field, int[][] field2, int r, int c) {
     int ans = 0;
     try {
       ans += field[r - 1][c];
+    } catch (ArrayIndexOutOfBoundsException e) {
+
+    }
+    try {
       ans += field[r + 1][c];
-      ans += field[r][c - 1];
+    } catch (ArrayIndexOutOfBoundsException e) {
+
+    }
+    try {
       ans += field[r][c - 1];
     } catch (ArrayIndexOutOfBoundsException e) {
 
     }
-    return ans;
+    try {
+      ans += field[r][c + 1];
+    } catch (ArrayIndexOutOfBoundsException e) {
+
+    }
+    field2[r][c] = ans;
   }
 
   public static void main(String[] args) {
