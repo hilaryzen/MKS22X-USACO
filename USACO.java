@@ -111,6 +111,7 @@ public class USACO {
 
     //Changing array
     change(field, field2, startR, startC);
+    change(field, field2, startR, startC - 1);
     System.out.println(Arrays.deepToString(field));
     System.out.println(Arrays.deepToString(field2));
 
@@ -119,25 +120,16 @@ public class USACO {
 
   private static void change(int[][] field, int[][] field2, int r, int c) {
     int ans = 0;
-    try {
-      ans += field[r - 1][c];
-    } catch (ArrayIndexOutOfBoundsException e) {
+    int[] rows = {-1, 0, 1, 0};
+    int[] cols = {0, -1, 0, 1};
+    for (int i = 0; i < rows.length; i++) {
+      try {
+        if (field[r + rows[i]][c + cols[i]] > 0) {
+          ans += field[r + rows[i]][c + cols[i]];
+        }
+      } catch (ArrayIndexOutOfBoundsException e) {
 
-    }
-    try {
-      ans += field[r + 1][c];
-    } catch (ArrayIndexOutOfBoundsException e) {
-
-    }
-    try {
-      ans += field[r][c - 1];
-    } catch (ArrayIndexOutOfBoundsException e) {
-
-    }
-    try {
-      ans += field[r][c + 1];
-    } catch (ArrayIndexOutOfBoundsException e) {
-
+      }
     }
     field2[r][c] = ans;
   }
