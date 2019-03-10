@@ -79,7 +79,8 @@ public class USACO {
 
     //Creates a char array to store the field
     String[] line = lines.get(0).split(" ");
-    char[][] field = new char[Integer.parseInt(line[0])][Integer.parseInt(line[1])];
+    int[][] field = new char[Integer.parseInt(line[0])][Integer.parseInt(line[1])];
+    int[][] field2 = new char[Integer.parseInt(line[0])][Integer.parseInt(line[1])];
     int steps = Integer.parseInt(line[2]);
     lines.remove(0);
     //Filling array
@@ -87,7 +88,13 @@ public class USACO {
     for (int i = 0; i < field.length; i++) {
       l = lines.get(0);
       for (int j = 0; j < field[0].length; j++) {
-        field[i][j] = l.charAt(j);
+        if (l.charAt(j) == '.') {
+          field[i][j] = 0;
+          field2[i][j] = 0;
+        } else {
+          field[i][j] = -1;
+          field2[i][j] = -1;
+        }
       }
       //Removes lines so that the ArrayList only contains stomp instructions
       lines.remove(0);
