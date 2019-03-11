@@ -125,8 +125,8 @@ public class USACO {
       }
     }
 
-    System.out.println(Arrays.deepToString(field));
-    System.out.println(Arrays.deepToString(field2));
+    //System.out.println(Arrays.deepToString(field));
+    //System.out.println(Arrays.deepToString(field2));
 
     return field[endR][endC];
   }
@@ -150,16 +150,18 @@ public class USACO {
   }
 
   public static void main(String[] args) {
-    /*
-    String[] bronzeFiles = {"makelake.1.in", "makelake.2.in", "makelake.3.in", "makelake.4.in", "makelake.5.in"};
+    String[] files = {".1.in", ".2.in", ".3.in", ".4.in", ".5.in"};
     int[] bronzeAns = {342144, 102762432, 1058992704, 753121152, 1028282688};
+    int[] silverAns = {1, 74, 6435, 339246, 0};
     for (int i = 0; i < 5; i++) {
-      if (bronze(bronzeFiles[i]) == bronzeAns[i]) {
+      String filename = "makelake" + files[i];
+      if (bronze(filename) == bronzeAns[i]) {
         System.out.println("Bronze test " + (i + 1) + " passed");
       }
+      filename = "ctravel" + files[i];
+      if (silver(filename) == silverAns[i]) {
+        System.out.println("Silver test " + (i + 1) + " passed");
+      }
     }
-    */
-
-    System.out.println(silver("ctravel.1.in"));
   }
 }
